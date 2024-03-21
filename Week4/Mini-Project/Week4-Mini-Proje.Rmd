@@ -1,3 +1,4 @@
+
 ---
 title: "R Notebook"
 output: html_notebook
@@ -19,8 +20,10 @@ Ham veriler ise [https://sim.csb.gov.tr/STN/STN_Report/StationDataDownloadNew](h
 - Şubat ayında doğduysanız Şubat 2024 verisi
 
 ```{r}
+library(readxl)
+library(dplyr)
 # Excel dosyasındaki ham verileri data.frame formatında R'a ithal edin
-# havaK <- <kodu tamamla>
+havaK <- read_excel("C:/Users/COMU/Documents/Bilgi Yönetim Sistemleri/Week4/veriler.xlsx")
 ```
 
 ## Egzersiz 2 - Veri Kalite Kontrolü
@@ -28,7 +31,8 @@ Ham veriler ise [https://sim.csb.gov.tr/STN/STN_Report/StationDataDownloadNew](h
 *havaK* adlı değişkendeki bütün verilerin **numric** tipte olmasını sağlayın. Eksik veriler NA olmalıdır.
 
 ```{r}
-# havaK <- <kodu tamamla>
+havaK[sapply(havaK, function(x) !is.numeric(x))] <- NA
+
 
 ```
 
