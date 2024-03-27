@@ -1,7 +1,8 @@
-
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 T.C. Çevre Şehircilik ve İklim Değişikliği bakanlığının ülke genelinde yaptığı hava kalitesi
@@ -19,28 +20,41 @@ Ham veriler ise [https://sim.csb.gov.tr/STN/STN_Report/StationDataDownloadNew](h
 - Aralık ayında doğduysanız Aralık 2023 verisi
 - Şubat ayında doğduysanız Şubat 2024 verisi
 
+Yaratacağınız data.frame nesnesinin sütun isimleri Excel'de bulunan değişken sütun isimlerini içermelidir. *havaK* nesnesinin ilk 10 satırının raporda gözükmesini sağlayın.
+
 ```{r}
-library(readxl)
-library(dplyr)
 # Excel dosyasındaki ham verileri data.frame formatında R'a ithal edin
-havaK <- read_excel("C:/Users/COMU/Documents/Bilgi Yönetim Sistemleri/Week4/veriler.xlsx")
+# havaK <- <kodu tamamla>
 ```
 
 ## Egzersiz 2 - Veri Kalite Kontrolü
 
-*havaK* adlı değişkendeki bütün verilerin **numric** tipte olmasını sağlayın. Eksik veriler NA olmalıdır.
+### Zaman sütunu
+Zaman değerlerini içeren sütunun isminin **Time** olmasını sağlayın
+```{r}
+#  <kodu tamamla>
+```
+
+
+*havaK$Time* adlı değişkendeki bütün verilerin **POSIXct** tipinde olmasını sağlayın. 
 
 ```{r}
-havaK[sapply(havaK, function(x) !is.numeric(x))] <- NA
+# <kodu tamamla>
+```
 
+*Time* sütunu dışındaki bütün sütunların tipinin **numeric** olmasını sağlayın. *havaK* nesnesinin ilk 10 satırının raporda gözükmesini sağlayın.
 
+```{r}
+# <kodu tamamla>
 ```
 
 ## Egzersiz 3 - Veri Görselleme
+*dygraphs* paketini kullanarak veri setinizde bulunan iki farklı parametreyi aynı grafik üzerinde iki değişik aks kullanarak (bkz örnek) çizin.
 
-*havaK* adlı değişkendeki bütün verilerin **numric** tipte olmasını sağlayın. Eksik veriler NA olmalıdır.
+![](graphic_example.png "İki akslı grafik örneği")
+
 
 ```{r}
-# havaK <- <kodu tamamla>
-
+library(dygraphs)
+#  <kodu tamamla>
 ```
