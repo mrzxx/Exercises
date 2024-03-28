@@ -71,11 +71,14 @@ head(havaK, 10)
 ```{r}
 library(dygraphs)
 library(xts)
-havaK_xts <- xts(havaK[, c(2, 3)], order.by=havaK$Time)
+havaK_xts <- xts(havaK[, c(3, 4)], order.by=havaK$Time)
 # Oluşturulan xts nesnesi için dygraph oluşturma
 dygraph(havaK_xts) %>%
+  #Sırası ile renkler
   dyOptions(colors = c("blue", "red")) %>%
+  #Sol
   dyAxis("y", label = "PM 2.5 ( µg/m3 )") %>%
+  #Sağ
   dyAxis("y2", label = "SO2 ( µg/m3 )", independentTicks = TRUE) %>%
   dySeries(names(havaK_xts)[2], axis = 'y2')
 ```
