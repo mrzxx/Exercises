@@ -52,6 +52,9 @@ havaK[-which(names(havaK) == "Time")] <- lapply(havaK[-which(names(havaK) == "Ti
   # Sayısal olmayan karakterleri ve boşlukları temizle
   x <- gsub("[^0-9,]", "", x)
   # Ondalık ayırıcıları noktaya çevir
+  
+  #- olanları boş yapalım ki NA çevrilsin
+  x <- gsub("-", "", x)
   x <- gsub(",", ".", x)
   # Sayısal değerlere dönüştür
   as.numeric(x)
