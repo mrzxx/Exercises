@@ -1,5 +1,5 @@
 library(RSQLite)
-con <- dbConnect(SQLite(), dbname="C:/mert_is/Exercises/Week6/ornek_veritabani.db")
+con <- dbConnect(SQLite(), dbname="C:/mert_is/Exercises/Week6/Week6/ornek_veritabani.db")
 sorgu <- "
 SELECT musteriler.id, ad, soyad, sehir, urun_adi, miktar
 FROM musteriler
